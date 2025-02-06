@@ -527,7 +527,7 @@ def mutation_sample_dispatch(
 
     while mutant_operations:
         # random.choice doesn't support sets, but sample of 1 produces a list with one element
-        current_mutation = random.sample(mutant_operations, k=1)[0]
+        current_mutation = random.sample(list(mutant_operations), k=1)[0]
         mutant_operations.remove(current_mutation)
 
         trial_results = trial_runner(
